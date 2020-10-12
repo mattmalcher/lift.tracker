@@ -1,13 +1,14 @@
 make_cal_data <- function(break_data, start_date = end_date - 365, end_date = Sys.Date()) {
   break_data <-
     dplyr::left_join(
-      x = data.frame(when = seq.Date(from = start_date,to =  end_date, by = "day")),
+      x = data.frame(when = seq.Date(from = start_date, to = end_date, by = "day")),
       y = break_data,
       by = "when"
     ) %>%
     dplyr::group_by(when) %>%
     dplyr::mutate(
-      badness = 5 * sum(category == "Break", na.rm = TRUE) + sum(category == "Scary Occurance", na.rm = TRUE)) %>%
+      badness = 5 * sum(category == "Break", na.rm = TRUE) + sum(category == "Scary Occurance", na.rm = TRUE)
+    ) %>%
     dplyr::ungroup()
 
   sugrrants::frame_calendar(
@@ -20,12 +21,13 @@ make_cal_data <- function(break_data, start_date = end_date - 365, end_date = Sy
 }
 
 make_cal_plot <- function(cal_data) {
-
   p <-
-    ggplot2::ggplot(data = cal_data,
-                    ggplot2::aes(x = .x, y = .y)) +
+    ggplot2::ggplot(
+      data = cal_data,
+      ggplot2::aes(x = .x, y = .y)
+    ) +
     ggiraph::geom_tile_interactive(
-      aes(fill = badness),
+      ggplot2::aes(fill = badness),
       colour = "grey50",
       tooltip = cal_data$what
     ) +
