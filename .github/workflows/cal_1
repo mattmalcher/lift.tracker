@@ -1,0 +1,46 @@
+on:
+  push:
+    paths:
+      - README.Rmd
+
+name: Render Cal
+
+jobs:
+  render:
+    name: Render README
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes"))
+          remotes::install_deps(dependencies = TRUE)
+      - name: Render CAL
+        run: Rscript -e 'rmarkdown::render("dev/cal_1.Rmd")'
+      - name: Commit results
+      - uses: actions/upload-artifact@v1
+        with:
+          name: dev
+          path: dev/
+          
+  checkout-and-deploy:
+   runs-on: ubuntu-latest
+   needs: render
+   steps:
+     - name: Checkout
+       uses: actions/checkout@master
+     - name: Download artifact
+       uses: actions/download-artifact@v1.0.0
+       with:
+         # Artifact name
+         name: dev # optional
+         # Destination path
+         path: dev # optional
+     - name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@master
+       env:
+          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
+          GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
+          BUILD_DIR: dev/                     # "_site/" by default    needs: bookdown
