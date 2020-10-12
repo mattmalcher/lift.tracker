@@ -1,0 +1,39 @@
+---
+title: "South City Court Lift Tracker"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+devtools::load_all(path = ".")
+
+googlesheets4::gs4_deauth() # tell gs4 that it wont need credentials
+```
+
+
+```{r get data, include=FALSE}
+# Get the breakage data from the sheet. Note this is a public, but read-only link.
+break_data <- get_form_data(
+  form_url = "https://docs.google.com/spreadsheets/d/1QPcqWwbQVkFqDS72ZdOxeDsIP5Y4L13w9P7EzLs5uEY/edit?usp=sharing"
+  )
+```
+
+```{r make plot, echo=FALSE}
+cal_data <- make_cal_data(break_data = break_data)
+
+cal_plot <- make_cal_plot(cal_data = cal_data)
+```
+
+
+The lift in this building breaks a _lot_, hopefully keeping track here can encourage Property Partners to pursue a long term fix
+
+Keep the tracker up to date by submitting a report **[HERE](https://forms.gle/ChogVJg1CVNaoJPv7).** (This does not summon the lift repair company.)
+
+You can hover over the boxes below to see the notes on each day. 
+
+```{r echo=FALSE}
+cal_plot
+```
+
