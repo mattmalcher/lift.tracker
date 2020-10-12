@@ -1,9 +1,13 @@
 on:
   push:
-    paths:
-      - README.Rmd
+    branches:
+      - master
 
-name: Render Cal
+on:
+  schedule:
+      - cron: "0 */3 * * *"
+
+name: Render on Code Update
 
 jobs:
   render:
@@ -24,7 +28,7 @@ jobs:
         with:
           name: dev
           path: dev/
-          
+
   checkout-and-deploy:
    runs-on: ubuntu-latest
    needs: render
