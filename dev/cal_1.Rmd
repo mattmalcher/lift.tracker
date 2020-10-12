@@ -7,7 +7,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-devtools::load_all(path = ".")
+pkgload::load_all(path = ".")
 
 googlesheets4::gs4_deauth() # tell gs4 that it wont need credentials
 ```
@@ -27,9 +27,9 @@ cal_plot <- make_cal_plot(cal_data = cal_data)
 ```
 
 
-The lift in this building breaks a _lot_, hopefully keeping track here can encourage Property Partners to pursue a long term fix
+The lift in this building breaks a _lot_, hopefully keeping track can encourage Property Partners to pursue a long term fix.
 
-Keep the tracker up to date by submitting a report **[HERE](https://forms.gle/ChogVJg1CVNaoJPv7).** (This does not summon the lift repair company.)
+Update the tracker by submitting a report **[HERE](https://forms.gle/ChogVJg1CVNaoJPv7).** (This does not summon the lift repair company.)
 
 You can hover over the boxes below to see the notes on each day. 
 
