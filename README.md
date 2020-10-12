@@ -1,3 +1,7 @@
+ <!-- badges: start -->
+  [![R build status](https://github.com/mattmalcher/lift.tracker/workflows/R-CMD-check/badge.svg)](https://github.com/mattmalcher/lift.tracker/actions)
+  <!-- badges: end -->
+
 # lift.tracker
 
 A graphical representation of how often the lift in south city court is broken
