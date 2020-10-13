@@ -3,13 +3,10 @@
   <!-- badges: end -->
 
 # lift.tracker
-
 A graphical representation of how often the lift in south city court is broken. 
 
-Live at: **https://mattmalcher.github.io/lift.tracker/**
-
 # Where are the results?
-<add link to github pages>
+Live at: **https://mattmalcher.github.io/lift.tracker/**
 
 # Why are you doing this?
 Because carrying your bike up 4 floors is a pain.
