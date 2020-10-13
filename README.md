@@ -4,7 +4,9 @@
 
 # lift.tracker
 
-A graphical representation of how often the lift in south city court is broken
+A graphical representation of how often the lift in south city court is broken. 
+
+Live at: **https://mattmalcher.github.io/lift.tracker/**
 
 # Where are the results?
 <add link to github pages>
@@ -24,5 +26,5 @@ This should update within a day or two.
 * R for data vis
     * googlesheets4
     * ggplot2 - see [this vignette](https://cran.r-project.org/web/packages/sugrrants/vignettes/frame-calendar.html)
-* github actions to update
+* github actions to update - see [here](https://github.com/mattmalcher/lift.tracker/blob/main/.github/workflows/cal_1.yaml)
 * github pages for hosting
