@@ -17,7 +17,7 @@ Because carrying your bike up 4 floors is a pain.
 # How do I add data?
 Fill out the form at: https://forms.gle/895QEMSCkqaR9vrr7
 
-This should update within a day or two.
+This should update within 3 hours (current action schedule)
 
 
 # How does this work?
